@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据绑定</title>
+    <script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 普通写法 -->
+         <!-- 单向绑定 -->
+         <!-- <input type="text" v-bind:value="x"> -->
+         <!-- 双向绑定 -->
+         <!-- <input type="text" v-model:value="y"> -->
+
+         <br>
+         <br>
+         <br>
+        <!-- 简写 -->
+         <!-- 单向绑定 -->
+         <input type="text" :value="x">
+         <!-- 双向绑定 -->
+         <input type="text" v-model="y">
+         
+    </div>
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+    var app = new Vue({
+        el: '#app',
+        data: {
+            x: '奥萨蒂',
+            y: '阿瑟东'
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数据代理</title>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"
+    ></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      Vue.config.productionTip = false;
+
+      let number = 18;
+      let person = {
+        name: "张三",
+        sex: "男",
+        // age: 18
+      };
+
+      Object.defineProperty(person, "age", {
+        // value: number,
+        //   writable: true, //值是否可修改
+        //   enumerable: true, //是否可枚举
+        //   configurable: true, //是否可配置
+        get() {
+          console.log("有人读取get属性了");
+          return number;
+        },
+        set(value) {
+          console.log("有人修改了set属性了");
+          number = value;
+        },
+      });
+    </script>
+  </body>
+</html>
