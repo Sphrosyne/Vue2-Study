@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的基本使用</title>
+    <script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        今天天气是：{{weather}}
+        <br>
+        <!-- 完整写法 -->
+        <button v-on:click="changeWeather">点我修改天气</button>
+        <br>
+        <!-- 简写 -->
+        <button @click="changeWeather">点我修改天气</button>
+
+        <!-- 传参 -->
+        <button @click="showInfo($event,89)">提示信息</button>
+    </div>
+    
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+    var app = new Vue({
+        el: '#app',
+        data: {
+            weather: '晴天'
+        },
+        methods: {
+            changeWeather: function() {
+                this.weather = '阴天'
+            },
+            showInfo(event,number){
+                console.log(event,number)
+                alert('天气已经修改')
+            }
+        }
+    })
+</script>
+</html>

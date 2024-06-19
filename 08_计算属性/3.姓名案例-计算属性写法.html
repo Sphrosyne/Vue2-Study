@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性写法</title>
+    <script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        姓: <input type="text" v-model="firstName">
+        名: <input type="text" v-model="lastName">
+        <p>姓名: {{fullName}}</p>
+    </div>
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+    var app = new Vue({
+        el: '#app',
+        data: {
+            firstName: '张',
+            lastName: '三'
+        },
+        computed: {
+            fullName: function () {
+                return this.firstName +'-'+ this.lastName
+            }
+        }
+    })
+
+</script>
+</html>

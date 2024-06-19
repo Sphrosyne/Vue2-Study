@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件修饰符</title>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"
+    ></script>
+    <style>
+      * {
+        margin: 20;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 六种事件修饰符 -->
+    <div id="app">
+      <!-- 1.prevent 阻止默认事件（常用）-->
+      <a href="https:www.baidu.com" @click.prevent="showInfo">点击跳转百度</a>
+      <!-- 2.stop：阻止事件冒泡（常用） -->
+      <!-- 3.once：事件只触发一次（常用） -->
+      <!-- 4.capture：使用事件的捕获模式 -->
+      <!-- 5.passive：事件监听器在捕获或冒泡阶段运行，而不会阻止默认行为。 -->
+      <!-- 6.self：事件监听器只能通过该元素本身触发 -->
+
+      <br />
+      <br />
+      <div>
+        <button @click="clickHandler">点击</button>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    Vue.config.productionTip = false;
+    var app = new Vue({
+      el: "#app",
+      methods: {
+        clickHandler: function (event) {
+          console.log(event);
+          alert("今天天气还将就");
+        },
+        showInfo: function (event) {
+          event.preventDefault();
+          alert("点击了a标签");
+        },
+      },
+    });
+  </script>
+</html>
